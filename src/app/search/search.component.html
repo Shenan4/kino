@@ -1,7 +1,7 @@
 <div class="flex">
   <mat-form-field class="example-full-width">
     <mat-label>Введите название фильма</mat-label>
-    <input matInput [(ngModel)]="searchQuery">
+    <input matInput [(ngModel)]="searchQuery" />
   </mat-form-field>
   <button mat-raised-button color="primary" (click)="searchMovies()">Найти</button>
 </div>
@@ -14,9 +14,14 @@
   <div *ngFor="let movie of movies" class="card" (click)="openMovieDetails(movie.id)">
     <a [routerLink]="['/movie', movie.id]">
       <div>
-        <img *ngIf="movie.poster" class="image_true" src="{{ movie?.poster }}" alt="Photo">
-        <img *ngIf="!movie.poster" class="image_false"  src="./assets/smart.svg"
-          [ngStyle]="{'background': 'rgb(119, 119, 119) !important'}" alt="Photo">
+        <img *ngIf="movie.poster" class="image_true" src="{{ movie?.poster }}" alt="Photo" />
+        <img
+          *ngIf="!movie.poster"
+          class="image_false"
+          src="./assets/smart.svg"
+          [ngStyle]="{ background: 'rgb(119, 119, 119) !important' }"
+          alt="Photo"
+        />
         <div class="text">
           <h4>{{ movie.name }}</h4>
           <div class="absolute">

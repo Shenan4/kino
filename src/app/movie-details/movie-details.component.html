@@ -1,48 +1,35 @@
-
 <button *ngIf="movie" (click)="goBack()" class="button">
-    <mat-icon>keyboard_arrow_left</mat-icon>
-    назад
+  <mat-icon>keyboard_arrow_left</mat-icon>
+  назад
 </button>
 
-<section *ngIf="movie" class="container"> 
-    <div class="grid">
-        <div class="flex">
-            <img [src]="movie?.poster.url" alt="poster">
-            <div class="data">
-                <h1>{{ movie.name }}</h1>
-                <div class="genres">
-                    Жарны: {{ getGenresString(genres) }}
-                </div>
-                <div class="genres">
-                    Страны: {{ getCountryString(country) }}
-                </div>
-                <p>
-                   Рейтинг Кинопоиска: {{ movie.rating.kp }}
-                </p>
-                <p>
-                   Рейтинг Imdb: {{ movie.rating.imdb }}
-                </p>
-                <!-- <p *ngFor="let country of countries">
-                    Страна: {{ country.name }}
-                </p> -->
-                <p *ngIf="movie.budget.value">
-                    Бюджет: {{movie.budget.value}}{{ movie.budget.currency }}
-                </p>
-                <p>Описание: {{ movie.description }}</p>
-            </div>
-        </div>
-        
-        
-       <hr>
-        <div class="acters">
-            <ul>
-                <li *ngFor="let person of firstFivePersons">
-                    <img [src]="person.photo" alt="person" width="50px" >
-                    <span>
-                        {{ person.name }}
-                    </span>
-                </li>
-            </ul>
-        </div>
+<section *ngIf="movie" class="container">
+  <div class="grid">
+    <div class="flex">
+      <img [src]="movie.poster.url" alt="poster" />
+      <div class="data">
+        <h1>{{ movie.name }}</h1>
+        <div class="genres">Жарны: {{ getGenresString(genres) }}</div>
+        <div class="genres">Страны: {{ getCountryString(country) }}</div>
+        <p>Рейтинг Кинопоиска: {{ movie.rating.kp }}</p>
+        <p>Рейтинг Imdb: {{ movie.rating.imdb }}</p>
+        <p *ngIf="movie.budget['value']">
+          Бюджет: {{ movie.budget['value'] }}{{ movie.budget['currency'] }}
+        </p>
+        <p>Описание: {{ movie.description }}</p>
+      </div>
     </div>
+
+    <hr />
+    <div class="acters">
+      <ul>
+        <li *ngFor="let person of firstFivePersons">
+          <img [src]="person.photo" alt="person" width="50px" />
+          <span>
+            {{ person.name }}
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>

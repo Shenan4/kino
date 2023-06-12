@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
-import { IMovie } from '../interface/items';
+import { IItems } from '../interface/items';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SearchService {
-  previousSearchResult!: any[]; 
+  previousSearchResult!: IItems[];
 
-  constructor() { }
-  setPreviousSearchResult(result: IMovie[]) {
-    this.previousSearchResult = result
+  setPreviousSearchResult(result: IItems[]) {
+    this.previousSearchResult = result;
   }
 
   getPreviousSearchResult() {
-    return this.previousSearchResult
+    return this.previousSearchResult;
   }
 }
